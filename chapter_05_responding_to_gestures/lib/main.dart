@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key}) : super(key: key);
+  MyHomePage({Key? key}) : super(key: key);
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -30,27 +30,25 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   bool _showHelp = false;
-  List<Map<String,dynamic>> _people;
-  _MyHomePageState() {
-    _people = <Map<String, String>>[
-      {"first": "Jim", "last": "Halpert"},
-      {"first": "Kelly", "last": "Kapoor"},
-      {"first": "Creed", "last": "Bratton"},
-      {"first": "Dwight", "last": "Schrute"},
-      {"first": "Andy", "last": "Bernard"},
-      {"first": "Pam", "last": "Beasley"},
-      {"first": "Jim", "last": "Halpert"},
-      {"first": "Robert", "last": "California"},
-      {"first": "David", "last": "Wallace"},
-      {"first": "Erin", "last": ""},
-      {"first": "Meredith", "last": "Palmer"},
-      {"first": "Ryan", "last": "Howard"},
-    ];
-  }
+  List<Map<String, dynamic>> _people = <Map<String, String>>[
+    {"first": "Jim", "last": "Halpert"},
+    {"first": "Kelly", "last": "Kapoor"},
+    {"first": "Creed", "last": "Bratton"},
+    {"first": "Dwight", "last": "Schrute"},
+    {"first": "Andy", "last": "Bernard"},
+    {"first": "Pam", "last": "Beasley"},
+    {"first": "Jim", "last": "Halpert"},
+    {"first": "Robert", "last": "California"},
+    {"first": "David", "last": "Wallace"},
+    {"first": "Erin", "last": ""},
+    {"first": "Meredith", "last": "Palmer"},
+    {"first": "Ryan", "last": "Howard"},
+  ];
 
   @override
   Widget build(BuildContext context) {
     const String _title = "Gestures demo";
+    // print(_people);
     return Scaffold(
       appBar: AppBar(
         title: Text(_title),
@@ -75,22 +73,22 @@ class _MyHomePageState extends State<MyHomePage> {
     showDialog<dynamic>(
       context: context,
       builder: (BuildContext context) => AlertDialog(
-            content: AddPersonForm(
-              addPerson: (Map<String, dynamic> newPerson) =>
-                  setState(() => _people.add(newPerson)),
-            ),
-          ),
+        content: AddPersonForm(
+          addPerson: (Map<String, dynamic> newPerson) =>
+              setState(() => _people.add(newPerson)),
+        ),
+      ),
     );
   }
 
-  void _deletePerson(Map<String, dynamic>person, BuildContext context) {
+  void _deletePerson(Map<String, dynamic> person, BuildContext context) {
     setState(() => _people.remove(person));
     print("Deleted ${person['first']}");
-    Scaffold.of(context)
+    ScaffoldMessenger.of(context)
         .showSnackBar(SnackBar(content: Text("Deleted ${person['first']}")));
   }
 
-  void _updatePerson(Map<String, dynamic> person, {String status}) {
+  void _updatePerson(Map<String, dynamic> person, {String? status}) {
     setState(() => person['status'] = status);
   }
 
@@ -110,10 +108,11 @@ class _MyHomePageState extends State<MyHomePage> {
               title: Text('How to use this widget'),
               subtitle: Text(_helpText),
             ),
-            ButtonTheme.bar(
+            ButtonBarTheme(
+              data: ButtonBarThemeData(alignment: MainAxisAlignment.center),
               child: ButtonBar(
                 children: <Widget>[
-                  FlatButton(
+                  TextButton(
                     child: const Text('DISMISS'),
                     onPressed: () => setState(() => _showHelp = !_showHelp),
                   ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AddPersonForm extends StatefulWidget {
-  final Function addPerson;
+  final Function? addPerson;
   AddPersonForm({this.addPerson});
   @override
   _AddPersonFormState createState() => _AddPersonFormState();
@@ -22,10 +22,10 @@ class _AddPersonFormState extends State<AddPersonForm> {
           child: ListView(
             children: <Widget>[
               Text("Add a new person",
-                  style: Theme.of(context).textTheme.headline),
+                  style: Theme.of(context).textTheme.headlineMedium),
               _buildFirstNameText(),
               _buildLastNameText(),
-              RaisedButton(
+              ElevatedButton(
                 onPressed: () => _savePerson(context),
                 child: Text("Save"),
               )
@@ -37,34 +37,34 @@ class _AddPersonFormState extends State<AddPersonForm> {
   }
 
   void _savePerson(BuildContext context) {
-    if (_key.currentState.validate()) {
-      _key.currentState.save();
+    if (_key.currentState!.validate()) {
+      _key.currentState!.save();
       print("Save ${_person['first']} here");
-      widget.addPerson(_person);
+      widget.addPerson!(_person);
       Navigator.pop(context, true);
     }
   }
 
   Widget _buildFirstNameText() {
     return TextFormField(
-      onSaved: (val) {
-        _person['first'] = val;
+      onSaved: (String? val) {
+        _person['first'] = val!;
       },
       decoration: InputDecoration(labelText: "First name"),
-      validator: (val) {
-        if (val.isEmpty) return "We need a first name, please";
+      validator: (String? val) {
+        if (val!.isEmpty) return "We need a first name, please";
       },
     );
   }
 
   Widget _buildLastNameText() {
     return TextFormField(
-      onSaved: (val) {
-        _person['last'] = val;
+      onSaved: (String? val) {
+        _person['last'] = val!;
       },
       decoration: InputDecoration(labelText: "Last name"),
-      validator: (val) {
-        if (val.isEmpty) return "We need a last name, please";
+      validator: (String? val) {
+        if (val!.isEmpty) return "We need a last name, please";
       },
     );
   }

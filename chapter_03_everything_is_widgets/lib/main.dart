@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 
 // Here is main calling runApp
 void main() => runApp(MaterialApp(home: RootWidget()));
- 
+
 // And here is your root widget
 class RootWidget extends StatelessWidget {
-Widget build(BuildContext context) {
-  return FancyHelloWidget();
-  // return Person(firstName:"Sarah", lastName:"Ali");
-}
+  Widget build(BuildContext context) {
+    return FancyHelloWidget();
+    // return Person(firstName:"Sarah", lastName:"Ali");
+  }
 }
 
 class FancyHelloWidget extends StatelessWidget {
@@ -33,9 +33,9 @@ class FancyHelloWidget extends StatelessWidget {
 }
 
 class Person extends StatelessWidget {
-  final String firstName;
-  final String lastName;
-  Person({this.firstName, this.lastName}) {} 
+  final String? firstName;
+  final String? lastName;
+  Person({this.firstName, this.lastName}) {}
   Widget build(BuildContext context) {
     return Container(child: Text('$firstName $lastName'));
   }

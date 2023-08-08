@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 enum SearchType { web, image, news, shopping }
+
 enum SearchLocation { anywhere, title, text }
 
 class SimplestForm extends StatefulWidget {
@@ -11,27 +12,27 @@ class SimplestForm extends StatefulWidget {
 class _SimplestFormState extends State<SimplestForm> {
   SearchLocation _searchLocation = SearchLocation.anywhere;
   SearchType _searchType = SearchType.web;
-  String _searchTerm='';
+  String _searchTerm = '';
   double _numberOfResults = 10.0;
   bool _safeSearchOn = true;
   final TextEditingController _controller =
       TextEditingController(text: 'Searching...');
-final GlobalKey<FormState> _key = GlobalKey<FormState>();
+  final GlobalKey<FormState> _key = GlobalKey<FormState>();
 
-@override
-Widget build(BuildContext context) {
-  return Form(
-    key: _key,
-    onChanged: () {
-      print('changed');
-    },
-    child:   Container(
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: _key,
+      onChanged: () {
+        print('changed');
+      },
+      child: Container(
         padding: const EdgeInsets.all(20),
         child: ListView(
           children: <Widget>[
             Text(
               'Advanced search',
-              style: Theme.of(context).textTheme.title,
+              style: Theme.of(context).textTheme.titleMedium,
             ),
             const Text('Search terms'),
             TextField(
@@ -69,14 +70,15 @@ Widget build(BuildContext context) {
                   value: SearchType.shopping,
                 ),
               ],
-              onChanged: (SearchType val) => setState(() => _searchType = val),
+              onChanged: (SearchType? val) =>
+                  setState(() => _searchType = val!),
             ),
             Row(
               children: <Widget>[
                 Checkbox(
                     value: _safeSearchOn,
-                    onChanged: (bool val) =>
-                        setState(() => _safeSearchOn = val)),
+                    onChanged: (bool? val) =>
+                        setState(() => _safeSearchOn = val!)),
                 const Text('Safesearch on'),
               ],
             ),
@@ -86,8 +88,8 @@ Widget build(BuildContext context) {
                 Radio<SearchLocation>(
                     groupValue: _searchLocation,
                     value: SearchLocation.anywhere,
-                    onChanged: (SearchLocation val) =>
-                        setState(() => _searchLocation = val)),
+                    onChanged: (SearchLocation? val) =>
+                        setState(() => _searchLocation = val!)),
                 const Text('Search anywhere'),
               ],
             ),
@@ -96,8 +98,8 @@ Widget build(BuildContext context) {
                 Radio<SearchLocation>(
                     groupValue: _searchLocation,
                     value: SearchLocation.text,
-                    onChanged: (SearchLocation val) =>
-                        setState(() => _searchLocation = val)),
+                    onChanged: (SearchLocation? val) =>
+                        setState(() => _searchLocation = val!)),
                 const Text('Search page text'),
               ],
             ),
@@ -106,13 +108,13 @@ Widget build(BuildContext context) {
                 Radio<SearchLocation>(
                     groupValue: _searchLocation,
                     value: SearchLocation.title,
-                    onChanged: (SearchLocation val) =>
-                        setState(() => _searchLocation = val)),
+                    onChanged: (SearchLocation? val) =>
+                        setState(() => _searchLocation = val!)),
                 const Text('Search page title'),
               ],
             ),
             Text(_searchLocation.toString()),
-            const RaisedButton(
+            const ElevatedButton(
               child: Text('Submit'),
               onPressed: null,
             )
