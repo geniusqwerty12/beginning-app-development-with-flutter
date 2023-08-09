@@ -22,7 +22,7 @@ class GridViewCountDemo extends StatefulWidget {
 }
 
 class _GridViewCountDemoState extends State<GridViewCountDemo> {
-  List<dynamic> _peopleList = List<dynamic>();
+  List<dynamic> _peopleList = <dynamic>[];
 
   void _getPeople() async {
     String peopleString = await DefaultAssetBundle.of(context)
@@ -90,11 +90,10 @@ class PersonCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                child: Text(fullName,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontStyle: Theme.of(context).textTheme.title.fontStyle,
-                    )),
+                child: Text(
+                  fullName,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(color: Colors.white),
+                ),
               ),
               Spacer(),
               Container(

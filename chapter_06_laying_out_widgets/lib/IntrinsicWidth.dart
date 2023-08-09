@@ -15,19 +15,19 @@ class IntrinsicWidthSetting extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                RaisedButton(
+                ElevatedButton(
                   child: Text("A"),
                   onPressed: () {},
                 ),
-                RaisedButton(
+                ElevatedButton(
                   child: Text("B"),
                   onPressed: () {},
                 ),
-                RaisedButton(
+                ElevatedButton(
                   child: Text("This is a super-long button"),
                   onPressed: () {},
                 ),
-                RaisedButton(
+                ElevatedButton(
                   child: Text("D"),
                   onPressed: () {},
                 ),
@@ -44,19 +44,19 @@ class IntrinsicWidthSetting extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  RaisedButton(
+                  ElevatedButton(
                     child: Text("A"),
                     onPressed: () {},
                   ),
-                  RaisedButton(
+                  ElevatedButton(
                     child: Text("B"),
                     onPressed: () {},
                   ),
-                  RaisedButton(
+                  ElevatedButton(
                     child: Text("This is a long button"),
                     onPressed: () {},
                   ),
-                  RaisedButton(
+                  ElevatedButton(
                     child: Text("D"),
                     onPressed: () {},
                   ),
@@ -74,19 +74,19 @@ class IntrinsicWidthSetting extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  RaisedButton(
+                  ElevatedButton(
                     child: Text("A"),
                     onPressed: () {},
                   ),
-                  RaisedButton(
+                  ElevatedButton(
                     child: Text("B"),
                     onPressed: () {},
                   ),
-                  RaisedButton(
+                  ElevatedButton(
                     child: Text("This is a super-long button"),
                     onPressed: () {},
                   ),
-                  RaisedButton(
+                  ElevatedButton(
                     child: Text("D"),
                     onPressed: () {},
                   ),

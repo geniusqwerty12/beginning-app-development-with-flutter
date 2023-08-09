@@ -14,7 +14,7 @@ class _WriteNewFileState extends State<WriteNewFile> {
   String _text = 'No text yet';
   String _message = '';
   bool _errorStatus = false;
-  TextEditingController _controller;
+  TextEditingController? _controller;
 
   @override
   void initState() {
@@ -34,7 +34,7 @@ class _WriteNewFileState extends State<WriteNewFile> {
   Widget get _body {
     final TextStyle _messageStyle = _errorStatus
         ? TextStyle(color: Colors.red, fontWeight: FontWeight.bold)
-        : Theme.of(context).textTheme.body1;
+        : Theme.of(context).textTheme.bodySmall!;
     return Container(
       padding: const EdgeInsets.all(20),
       child: ListView(
@@ -49,7 +49,7 @@ class _WriteNewFileState extends State<WriteNewFile> {
               });
             },
           ),
-          RaisedButton(
+          ElevatedButton(
             child: Icon(Icons.open_in_browser),
             onPressed: () async {
               final Directory documents = await getApplicationDocumentsDirectory();

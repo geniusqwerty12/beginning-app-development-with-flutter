@@ -4,10 +4,11 @@ import 'LayoutDrawer.dart';
 
 class RowsAndColumns extends StatelessWidget {
   final List<dynamic> peopleList;
-  RowsAndColumns({this.peopleList});
+  RowsAndColumns({required this.peopleList});
 
   @override
   Widget build(BuildContext context) {
+    print(peopleList);
     return Column(
       children: <Widget>[
         Row(
@@ -85,7 +86,7 @@ class RowsAndColumnsDemo extends StatefulWidget {
 }
 
 class _RowsAndColumnsDemoState extends State<RowsAndColumnsDemo> {
-  List<dynamic> _peopleList = List<dynamic>();
+  List<dynamic> _peopleList = <dynamic>[];
 
   void _getPeople() async {
     String peopleString = await DefaultAssetBundle.of(context)

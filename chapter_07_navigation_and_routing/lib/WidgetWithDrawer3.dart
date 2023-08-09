@@ -13,7 +13,7 @@ class WidgetWithDrawer3 extends StatelessWidget {
         child: Container(
             child: Text(
           "I'm widget 3",
-          style: Theme.of(context).textTheme.display1,
+          style: Theme.of(context).textTheme.displayLarge,
         )),
       ),
     );

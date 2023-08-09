@@ -21,7 +21,9 @@ class ManagePeople extends StatelessWidget {
       onDoubleTap: () => addPerson!(context),
       child: ListView(
         children: people!
-            .map((Map<String, dynamic> person) => GestureDetector(
+            .map((Map<String, dynamic> person) {
+              // print(person);
+              return GestureDetector(
                   child: Person(person: person),
                   onLongPress: () {
                     deletePerson!(person, context);
@@ -40,7 +42,8 @@ class ManagePeople extends StatelessWidget {
                     else
                       updatePerson!(person, status: "naughty");
                   },
-                ))
+                );
+                })
             .toList(),
       ),
     );

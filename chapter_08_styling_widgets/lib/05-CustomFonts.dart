@@ -9,7 +9,7 @@ class CustomFonts extends StatefulWidget {
 }
 
 class _CustomFontsState extends State<CustomFonts> {
-  List<String> loremIpsums;
+  List<String>? loremIpsums;
   bool loading = false;
 
   @override
@@ -31,10 +31,10 @@ class _CustomFontsState extends State<CustomFonts> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: loading ? <Widget>[SizedBox()]: <Widget>[
-              Text(loremIpsums[0]),  // Unstyled
-              Text(loremIpsums[1], style: TextStyle(fontFamily: "Courier"),),
-              Text(loremIpsums[2], style: TextStyle(fontFamily: 'NanumBrushScript'),),
-              Text(loremIpsums[3], style: TextStyle(fontFamily: 'MrDafoe'),),
+              Text(loremIpsums![0]),  // Unstyled
+              Text(loremIpsums![1], style: TextStyle(fontFamily: "Courier"),),
+              Text(loremIpsums![2], style: TextStyle(fontFamily: 'NanumBrushScript'),),
+              Text(loremIpsums![3], style: TextStyle(fontFamily: 'MrDafoe'),),
             ],
           ),
         ),
@@ -42,11 +42,11 @@ class _CustomFontsState extends State<CustomFonts> {
     );
   }
 
-  Future<List<String>> getLoremIpsums({@required int numberToFetch}) async {
+  Future<List<String>> getLoremIpsums({required int numberToFetch}) async {
     setState(() {
       loading = true;
     });
-    String _url = Uri.encodeFull(
+    Uri _url = Uri.parse(
         "https://loripsum.net/api/$numberToFetch/short/plaintext");
     try {
       http.Response response = await http.get(_url, headers: <String, String>{

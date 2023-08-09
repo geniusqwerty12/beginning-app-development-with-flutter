@@ -11,7 +11,7 @@ class _ChangeUserPreferencesState extends State<ChangeUserPreferences> {
   final _nameController = TextEditingController();
   final _colorController = TextEditingController();
 
-  Future _loading;
+  Future? _loading;
   String _message = "";
   
 
@@ -24,8 +24,8 @@ class _ChangeUserPreferencesState extends State<ChangeUserPreferences> {
 
   Future<void> readFromSharedPrefs() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    _nameController.text = prefs.getString('userName');
-    _colorController.text = prefs.getString('favoriteColor');
+    _nameController.text = prefs.getString('userName')!;
+    _colorController.text = prefs.getString('favoriteColor')!;
   }
 
   /// Writes parts of the state to SharedPrefs/NSUserDefaults
@@ -69,7 +69,7 @@ class _ChangeUserPreferencesState extends State<ChangeUserPreferences> {
             decoration: InputDecoration(labelText: "Favorite color"),
             controller: _colorController,
           ),
-          RaisedButton(
+          ElevatedButton(
             child: Icon(Icons.open_in_browser),
             onPressed: () async {
               try {

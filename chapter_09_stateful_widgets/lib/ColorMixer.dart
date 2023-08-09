@@ -3,7 +3,7 @@ import 'ColorCircle.dart';
 import 'ColorValueChanger.dart';
 // The stateful widget
 class ColorMixer extends StatefulWidget {
-  ColorMixer({Key key}) : super(key: key);
+  ColorMixer({Key? key}) : super(key: key);
   _ColorMixerState createState() => _ColorMixerState();
 }
 // The state object

@@ -13,7 +13,7 @@ class _ReadAFileState extends State<ReadAFile> {
   String _text = "No text yet";
   String _message = "";
   bool _errorStatus = false;
-  TextEditingController _controller;
+  TextEditingController? _controller;
 
   @override
   void initState() {
@@ -33,7 +33,7 @@ class _ReadAFileState extends State<ReadAFile> {
   Widget get _body {
     TextStyle _messageStyle = _errorStatus
         ? TextStyle(color: Colors.red, fontWeight: FontWeight.bold)
-        : Theme.of(context).textTheme.body1;
+        : Theme.of(context).textTheme.bodySmall!;
     return Container(
       padding: EdgeInsets.all(20),
       child: ListView(
@@ -48,7 +48,7 @@ class _ReadAFileState extends State<ReadAFile> {
               });
             },
           ),
-          RaisedButton(
+          ElevatedButton(
             child: Icon(Icons.open_in_browser),
             onPressed: () async {
               Directory documents = await getApplicationDocumentsDirectory();

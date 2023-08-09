@@ -16,7 +16,7 @@ class MyDrawer extends StatelessWidget {
                     alignment: Alignment.bottomRight,
                     child: Text(
                       'My Brand',
-                      style: Theme.of(context).textTheme.display1,
+                      style: Theme.of(context).textTheme.displaySmall,
                     )),
               ],
             ),

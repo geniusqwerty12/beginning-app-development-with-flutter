@@ -63,7 +63,7 @@ class Landing extends StatelessWidget {
               child: Column(children: <Widget>[
                 Text(
                   thing['label'],
-                  style: Theme.of(context).textTheme.headline,
+                  style: Theme.of(context).textTheme.headlineLarge,
                 ),
                 Divider(
                   color: Colors.black,

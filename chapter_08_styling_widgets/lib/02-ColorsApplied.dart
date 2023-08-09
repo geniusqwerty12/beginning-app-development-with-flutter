@@ -66,7 +66,7 @@ class ColorBlocks extends StatelessWidget {
 }
 
 class SupermanShield extends StatelessWidget {
-  const SupermanShield({Key key}) : super(key: key);
+  const SupermanShield({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

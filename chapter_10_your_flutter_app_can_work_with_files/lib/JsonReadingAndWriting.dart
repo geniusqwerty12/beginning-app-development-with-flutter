@@ -19,13 +19,13 @@ class _JsonReadingAndWritingState extends State<JsonReadingAndWriting> {
   EditingStatus _editingStatus = EditingStatus.none;
   Person _person = new Person();
   bool _errorStatus = false;
-  TextEditingController _controller;
+  TextEditingController? _controller;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   // To keep this demo more understandable, we made this a Map
   // but in practice, it would have been a Person class/object.
-  List<Person> _people = new List<Person>();
+  List<Person> _people = <Person>[];
 
   @override
   void initState() {
@@ -47,13 +47,13 @@ class _JsonReadingAndWritingState extends State<JsonReadingAndWriting> {
   Widget get _body {
     TextStyle _messageStyle = _errorStatus
         ? TextStyle(color: Colors.red, fontWeight: FontWeight.bold)
-        : Theme.of(context).textTheme.body1;
+        : (Theme.of(context).textTheme.bodySmall)!;
     return Container(
       padding: EdgeInsets.all(20),
       child: ListView(
         children: <Widget>[
           Text("Reading and writing JSON from $_filename"),
-          RaisedButton(
+          ElevatedButton(
             child: Text('Refresh the database file'),
             onPressed: _refreshAssetsFile,
           ),
@@ -66,11 +66,11 @@ class _JsonReadingAndWritingState extends State<JsonReadingAndWriting> {
               });
             },
           ),
-          RaisedButton(
+          ElevatedButton(
             child: Text("Load the database file"),
             onPressed: _loadDatabaseFile,
           ),
-          new DropdownButton<Person>(
+          DropdownButton<Person>(
             items: _people.map((Person person) {
               return new DropdownMenuItem<Person>(
                 value: person,
@@ -80,7 +80,7 @@ class _JsonReadingAndWritingState extends State<JsonReadingAndWriting> {
             onChanged: _selectCurrentPerson,
           ),
           if (_editingStatus == EditingStatus.none)
-            RaisedButton(
+            ElevatedButton(
               child: Text("Add New Person"),
               onPressed: _prepareAddPerson,
             ),
@@ -90,25 +90,25 @@ class _JsonReadingAndWritingState extends State<JsonReadingAndWriting> {
               children: <Widget>[
                 TextFormField(
                   decoration: InputDecoration(labelText: "First name"),
-                  onSaved: (value) {
+                  onSaved: (String? value) {
                     setState(() {
-                      _person.firstName = value;
+                      _person.firstName = value!;
                     });
                   },
                 ),
                 TextFormField(
                   decoration: InputDecoration(labelText: "Last name"),
-                  onSaved: (value) {
+                  onSaved: (String? value) {
                     setState(() {
-                      _person.lastName = value;
+                      _person.lastName = value!;
                     });
                   },
                 ),
                 TextFormField(
                   decoration: InputDecoration(labelText: "Occupation"),
-                  onSaved: (value) {
+                  onSaved: (String? value) {
                     setState(() {
-                      _person.occupation = value;
+                      _person.occupation = value!;
                     });
                   },
                 ),
@@ -118,11 +118,11 @@ class _JsonReadingAndWritingState extends State<JsonReadingAndWriting> {
           if (_editingStatus == EditingStatus.adding)
             Row(
               children: <Widget>[
-                RaisedButton(
+                ElevatedButton(
                   child: Text("Save"),
                   onPressed: _savePerson,
                 ),
-                RaisedButton(
+                ElevatedButton(
                   child: Text("Cancel"),
                   onPressed: _cancel,
                 ),
@@ -132,15 +132,15 @@ class _JsonReadingAndWritingState extends State<JsonReadingAndWriting> {
             if (_editingStatus == EditingStatus.modifying)
               Row(
                 children: <Widget>[
-                  RaisedButton(
+                  ElevatedButton(
                     child: Text("Save"),
                     onPressed: _savePerson,
                   ),
-                  RaisedButton(
+                  ElevatedButton(
                     child: Text("Cancel"),
                     onPressed: _cancel,
                   ),
-                  RaisedButton(
+                  ElevatedButton(
                     child: Text("Delete"),
                     onPressed: _deletePerson,
                   ),
@@ -172,17 +172,17 @@ class _JsonReadingAndWritingState extends State<JsonReadingAndWriting> {
   }
 
   void _cancel() {
-    _formKey.currentState.reset();
+    _formKey.currentState!.reset();
     setState(() {
       _editingStatus = EditingStatus.none;
       _person = new Person();
     });
   }
 
-  void _selectCurrentPerson(Person person) {
+  void _selectCurrentPerson(Person? person) {
     setState(() {
       _editingStatus = EditingStatus.modifying;
-      _person = person;
+      _person = person!;
       print("Selected $_person");
     });
   }
@@ -191,7 +191,7 @@ class _JsonReadingAndWritingState extends State<JsonReadingAndWriting> {
   // already, add them. If they do exist, update them.
   void _savePerson() {
     setState(() {
-      _formKey.currentState.save();
+      _formKey.currentState!.save();
       if (_editingStatus == EditingStatus.adding) {
         _person.id = new Uuid().v1();
         _people.add(_person);
@@ -201,7 +201,7 @@ class _JsonReadingAndWritingState extends State<JsonReadingAndWriting> {
       //Person thePerson = _people.firstWhere((Person p) => p.id == _person.id);
 
       _editingStatus = EditingStatus.none;
-      _formKey.currentState.reset();
+      _formKey.currentState!.reset();
       _saveDatabaseFile();
     });
   }
@@ -277,12 +277,12 @@ class _JsonReadingAndWritingState extends State<JsonReadingAndWriting> {
 }
 
 class Person {
-  String id;
-  String firstName;
-  String lastName;
-  String occupation;
+  String? id;
+  String? firstName;
+  String? lastName;
+  String? occupation;
 
-  Person({this.id, this.firstName, this.lastName, this.occupation});
+  Person({ this.id, this.firstName, this.lastName, this.occupation});
 
   String toString() {
     return json.encode(this);

@@ -72,8 +72,8 @@ class LandingScene extends StatelessWidget {
 class CustomButton extends StatelessWidget {
   final String text;
   final IconData iconData;
-  final Function action;
-  CustomButton({@required this.text, @required this.iconData, this.action});
+  final Function() action;
+  CustomButton({required this.text, required this.iconData, required this.action});
   @override
   Widget build(BuildContext context) {
     return Container(

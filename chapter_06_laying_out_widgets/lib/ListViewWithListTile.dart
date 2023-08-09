@@ -8,7 +8,7 @@ class ListViewWithListTileDemo extends StatefulWidget {
 }
 
 class _ListViewWithListTileDemoState extends State<ListViewWithListTileDemo> {
-  List<dynamic> _peopleList = List<dynamic>();
+  List<dynamic> _peopleList = <dynamic>[];
 
   void _getPeople() async {
     String peopleString = await DefaultAssetBundle.of(context)

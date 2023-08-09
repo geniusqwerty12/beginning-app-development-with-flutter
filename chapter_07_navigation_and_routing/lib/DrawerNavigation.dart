@@ -12,7 +12,7 @@ class DrawerNavigation extends StatelessWidget {
         child: Container(
             child: Text(
           'Drawer Navigation',
-          style: Theme.of(context).textTheme.display1,
+          style: Theme.of(context).textTheme.displayLarge,
         )),
       ),
       drawer: MyDrawer(),

@@ -22,7 +22,7 @@ class Decorations extends StatelessWidget {
               ),
               border: Border.all(
                 width: 10,
-                color: Theme.of(context).iconTheme.color,
+                color: (Theme.of(context).iconTheme.color)!,
               ),
               boxShadow: [
                 BoxShadow(

@@ -14,9 +14,9 @@ class StackNavigation extends StatelessWidget {
             children: <Widget>[
               Text(
                 'Stack Navigation',
-                style: Theme.of(context).textTheme.display1,
+                style: Theme.of(context).textTheme.displayLarge,
               ),
-              RaisedButton(
+              ElevatedButton(
                 child: const Text('Scene 1'),
                 onPressed: () => Navigator.pushNamed(context, '/stack1'),
               )

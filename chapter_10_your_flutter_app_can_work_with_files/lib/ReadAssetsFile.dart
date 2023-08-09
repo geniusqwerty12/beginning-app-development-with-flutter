@@ -29,12 +29,12 @@ class _ReadAssetsFileState extends State<ReadAssetsFile> {
   Widget get _body {
     TextStyle _messageStyle = _errorStatus
         ? TextStyle(color: Colors.red, fontWeight: FontWeight.bold)
-        : Theme.of(context).textTheme.body1;
+        : Theme.of(context).textTheme.bodySmall!;
     return Container(
       padding: EdgeInsets.all(20),
       child: ListView(
         children: <Widget>[
-          RaisedButton(
+          ElevatedButton(
             child: Icon(Icons.open_in_browser),
             onPressed: () async {
               _errorStatus = false;

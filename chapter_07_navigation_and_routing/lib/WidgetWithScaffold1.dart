@@ -14,13 +14,13 @@ class WidgetWithScaffold1 extends StatelessWidget {
             children: <Widget>[
               Text(
                 'I am widget 1',
-                style: Theme.of(context).textTheme.display1,
+                style: Theme.of(context).textTheme.displayLarge,
               ),
-              RaisedButton(
+              ElevatedButton(
                 child: const Text('Scene 2'),
                 onPressed: () => Navigator.pushNamed(context, '/stack2'),
               ),
-              RaisedButton(
+              ElevatedButton(
                 child: const Text('Go back'),
                 onPressed: () => Navigator.pop(context),
               ),

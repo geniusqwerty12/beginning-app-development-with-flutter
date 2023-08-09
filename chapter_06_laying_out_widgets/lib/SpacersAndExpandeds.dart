@@ -4,7 +4,7 @@ import 'LayoutDrawer.dart';
 
 class SpacersAndExpandeds extends StatelessWidget {
   final List<dynamic> peopleList;
-  SpacersAndExpandeds({this.peopleList});
+  SpacersAndExpandeds({required this.peopleList});
 
   @override
   Widget build(BuildContext context) {
@@ -101,7 +101,7 @@ class SpacersAndExpandedsDemo extends StatefulWidget {
 }
 
 class _SpacersAndExpandedsDemoState extends State<SpacersAndExpandedsDemo> {
-  List<dynamic> _peopleList = List<dynamic>();
+  List<dynamic> _peopleList = <dynamic>[];
 
   void _getPeople() async {
     String peopleString = await DefaultAssetBundle.of(context)

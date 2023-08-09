@@ -14,9 +14,9 @@ class Dialogs extends StatelessWidget {
             children: <Widget>[
               Text(
                 'Dialogs',
-                style: Theme.of(context).textTheme.display1,
+                style: Theme.of(context).textTheme.displayLarge,
               ),
-              RaisedButton(
+              ElevatedButton(
                 child: const Text('No response'),
                 onPressed: () => showDialog<void>(
                       context: context,
@@ -24,7 +24,7 @@ class Dialogs extends StatelessWidget {
                         return AlertDialog(
                           content: const Text('Press OK to continue'),
                           actions: <Widget>[
-                            FlatButton(
+                            TextButton(
                                 child: const Text('OK'),
                                 onPressed: () => Navigator.pop(context)),
                           ],
@@ -32,19 +32,19 @@ class Dialogs extends StatelessWidget {
                       },
                     ),
               ),
-              RaisedButton(
+              ElevatedButton(
                 child: const Text('Get a response'),
                 onPressed: () async {
-                  final String response = await showDialog<String>(
+                  final String? response = await showDialog<String>(
                     context: context,
                     builder: (BuildContext context) {
                       return AlertDialog(
                         content: const Text('Are you sure?'),
                         actions: <Widget>[
-                          FlatButton(
+                          TextButton(
                               child: const Text('Yes'),
                               onPressed: () => Navigator.pop(context, 'Yes')),
-                          FlatButton(
+                          TextButton(
                               child: const Text('No'),
                               onPressed: () => Navigator.pop(context, 'No')),
                         ],

@@ -7,7 +7,7 @@ class Widget2 extends StatelessWidget {
       child: Container(
         child: Text(
           "I'm widget 2",
-          style: Theme.of(context).textTheme.display1,
+          style: Theme.of(context).textTheme.displayLarge,
         ),
       ),
     );

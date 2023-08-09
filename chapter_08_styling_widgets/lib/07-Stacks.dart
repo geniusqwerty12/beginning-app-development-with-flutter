@@ -16,7 +16,7 @@ Card(
   elevation: 20.0,
   child: Stack(
     children: <Widget>[
-      Image.asset("6.jpg", width: 400, fit: BoxFit.cover),
+      Image.asset("images/6.jpg", width: 400, fit: BoxFit.cover),
       Positioned(
         top: 10,
         left: 10,
@@ -24,7 +24,7 @@ Card(
           "Sandeep Patel",
           style: Theme.of(context)
               .textTheme
-              .display1
+              .displayMedium!
               .copyWith(color: Colors.white),
         ),
       ),
@@ -34,7 +34,7 @@ Card(
         child: Text("Email: s.patel@us.com",
             style: Theme.of(context)
                 .textTheme
-                .body2
+                .bodyMedium!
                 .copyWith(color: Colors.white)),
       ),
       Positioned(
@@ -43,7 +43,7 @@ Card(
         child: Text("Phone: +1 (555) 786-3512",
             style: Theme.of(context)
                 .textTheme
-                .body2
+                .bodyMedium!
                 .copyWith(color: Colors.white)),
       ),
       Positioned(
@@ -64,26 +64,26 @@ Card(
             child: Card(
               child: Stack(
                 children: <Widget>[
-                  Image.asset("6.jpg"),
+                  Image.asset("images/6.jpg"),
                   Column(
                     children: <Widget>[
                       Text(
                         "Sandeep Patel",
                         style: Theme.of(context)
                             .textTheme
-                            .display1
+                            .displayMedium!
                             .copyWith(color: Colors.white),
                       ),
                       Expanded(child: Container()),
                       Text("Email: s.patel@us.com",
                           style: Theme.of(context)
                               .textTheme
-                              .body2
+                              .bodyMedium!
                               .copyWith(color: Colors.white)),
                       Text("Phone: +1 (555) 786-3512",
                           style: Theme.of(context)
                               .textTheme
-                              .body2
+                              .bodyMedium!
                               .copyWith(color: Colors.white)),
                     ],
                   ),

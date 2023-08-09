@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'LayoutDrawer.dart';
 
 class FittedBoxScaling extends StatelessWidget {
-  final List<dynamic> peopleList;
+  final List<dynamic>? peopleList;
   FittedBoxScaling({this.peopleList});
 
   @override
@@ -25,7 +25,7 @@ class FittedBoxDemo extends StatefulWidget {
 }
 
 class _FittedBoxDemoState extends State<FittedBoxDemo> {
-  List<dynamic> _peopleList = List<dynamic>();
+  List<dynamic> _peopleList = <dynamic>[];
 
   void _getPeople() async {
     String peopleString = await DefaultAssetBundle.of(context)

@@ -12,7 +12,7 @@ class TablesDemo extends StatefulWidget {
 }
 
 class _TablesDemoState extends State<TablesDemo> {
-  List<dynamic> _peopleList = List<dynamic>();
+  List<dynamic> _peopleList = <dynamic>[];
 
   void _getPeople() async {
     String peopleString = await DefaultAssetBundle.of(context)

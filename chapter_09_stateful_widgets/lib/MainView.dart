@@ -3,14 +3,14 @@ import 'ColorMixer.dart';
 import 'FavoriteColors.dart';
 
 class MainView extends StatelessWidget {
-  final String title;
-  MainView({Key key, this.title}) : super(key: key);
+  final String? title;
+  MainView({Key? key, this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text(title!),
       ),
       body:  Column(
           mainAxisAlignment: MainAxisAlignment.center,

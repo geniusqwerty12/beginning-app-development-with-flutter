@@ -4,7 +4,7 @@ import 'LayoutDrawer.dart';
 
 class FlexAndFlexible extends StatelessWidget {
   final List<dynamic> peopleList;
-  FlexAndFlexible({this.peopleList});
+  FlexAndFlexible({required this.peopleList});
 
   @override
   Widget build(BuildContext context) {
@@ -101,7 +101,7 @@ class FlexAndFlexibleDemo extends StatefulWidget {
 }
 
 class _FlexAndFlexibleDemoState extends State<FlexAndFlexibleDemo> {
-  List<dynamic> _peopleList = List<dynamic>();
+  List<dynamic> _peopleList = <dynamic>[];
 
   void _getPeople() async {
     String peopleString = await DefaultAssetBundle.of(context)
